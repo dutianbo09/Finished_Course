@@ -1,0 +1,108 @@
+#include <iostream>
+
+#include <cmath>
+
+using namespace std;
+
+class USTBStudent 
+{
+	
+protected:
+	int id;
+	char* name;
+public:
+	static int count;
+	USTBStudent()
+		{
+			count++;
+			id=0;
+			char* a="USTB";
+			name=a;
+		}
+	USTBStudent(int pi, char *pname)
+		{
+			count++;
+			id=pi;
+			name=new char [strlen(pname)+1];
+			if(name!=0)
+			strcpy(name,pname);
+		}
+	virtual int getId()
+		{return id;}
+	virtual char* getName()
+		{return name;}
+	virtual void printString()
+		{
+			cout<<id<<endl;
+			cout<<name<<endl;
+		}
+	~USTBStudent(){delete[] name;}
+};
+class MaterialUSTBStudent:	public USTBStudent
+{
+private:
+	char* major;
+public:
+	MaterialUSTBStudent()
+		{
+			id=1000+count;
+			char a[10]="zhangsan";
+			name=a;
+			char b[10]="Material";
+			major=b;
+		}
+	MaterialUSTBStudent(int pi, char *pname, char *pmajor)
+		{	
+			id=pi;
+			name=new char [strlen(pname)+1];
+			if(name!=0)
+			strcpy(name,pname);
+			major=new char [strlen(pmajor)+1];
+			if(major!=0)
+			strcpy(major,pmajor);
+		}
+	char* getMajor()
+		{return major;}
+	void printString()
+		{	
+			cout<<id<<endl;
+			cout<<name<<endl;
+			cout<<major<<endl;
+		}
+	~MaterialUSTBStudent(){delete[] major;}
+	
+};
+int USTBStudent::count=0;
+int main()
+{
+	 USTBStudent uStudent[8];
+
+       cout<<"the number of USTBStudent is "<<USTBStudent::count<<endl;
+
+       uStudent[1].printString();
+
+       MaterialUSTBStudent mStudent[9];
+
+       cout<<"the number of USTBStudent is "<<mStudent[0].count<<endl;
+
+       MaterialUSTBStudent *p=new MaterialUSTBStudent(1001,"zhangsan","material science");
+
+       p->printString();
+
+       cout<<p->getId()<<endl;
+
+       cout<<p->getName()<<endl;
+
+       cout<<p->getMajor()<<endl;
+
+       cout<<"the number of USTBStudent is "<<mStudent[0].count<<endl;
+
+	   delete p;
+
+       return 0;
+
+
+
+
+}
+

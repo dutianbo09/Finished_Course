@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+double small(double *pa, int size);
+int main()
+{
+	int size;
+	cin>>size;
+	double a[80];
+	for(int i=0;i<size;i++)
+		{
+			cin>>a[i];
+		}
+	double *pa;
+	pa=a;
+	cout<<small(a,size)<<endl;
+	return 0;
+}
+double small(double *pa, int size)
+{
+	double min=*pa;
+	for(int i=0;i<size;i++)
+		{
+			if (*(pa+i)<=min)
+				min=*(pa+i);
+		}
+	return min;
+}
+

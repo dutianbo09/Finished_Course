@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int zimu,shuzi,qita;
+void count(char a[]);
+int main()
+{
+	char a[100];
+	gets(a);
+	count(a);
+	cout<<zimu<<endl;
+	cout<<shuzi<<endl;
+	cout<<qita<<endl;
+	return 0;
+}
+void count(char a[])
+{
+	int i;
+	for(i=0;a[i]!='\0';i++)
+		{
+			if(a[i]>=48 && a[i]<=57)
+				shuzi++;
+				else if((a[i]>=65 && a[i]<=90)||(a[i]>=97 && a[i]<=112))
+						zimu++;
+					else
+						qita++;
+		}
+}

@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+class Rectangle
+{
+public:
+	
+	double width,height;
+	double getArea(){return width*height;};
+	double getPerimeter(){return 2*(width+height);}
+	Rectangle(double pw,double ph)
+	{
+		width=pw;
+		height=ph;
+	}
+	Rectangle(){width=1;height=1;};
+};
+int main()
+{
+	Rectangle r1(4,40);
+	Rectangle r2(3.5,35.9);
+	cout<<r1.getArea()<<"     "<<r1.getPerimeter()<<endl;
+	cout<<r2.getArea()<<"     "<<r2.getPerimeter()<<endl;
+	return 0;
+}

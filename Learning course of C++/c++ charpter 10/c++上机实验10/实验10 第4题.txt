@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+class Computer
+{
+public:
+		int id;
+		char* brand;
+		int mainFrequency;
+		int hardDisk;
+		Computer()
+		{
+		}
+		Computer(int pid, char* pb, int pm, int ph)
+		{
+			id=pid;
+			brand=new char[strlen(pb)+1];
+			if(brand!=0)
+				strcpy(brand, pb);
+			mainFrequency=pm;
+			hardDisk=ph;
+		}
+		Computer(Computer& c)
+		{
+			id=c.id;
+			brand=new char[strlen(c.brand)+1];
+			if(brand!=0)
+				strcpy(brand, c.brand);
+			mainFrequency=c.mainFrequency;
+			hardDisk=c.hardDisk;
+		}
+		~Computer()
+		{
+			delete[] brand;
+		}
+		void printComputer()
+		{
+			cout<<id<<endl;
+			cout<<brand<<endl;
+			cout<<mainFrequency<<endl;
+			cout<<hardDisk<<endl;
+		}
+		void setid(int pid)
+		{
+			id=pid;
+		}
+};
+int main()
+{
+	Computer c1(1001,"IBM",220,1024);
+	Computer c2[4];
+	int i;
+	for(i=0;i<4;i++)
+		{
+			c2[i]=c1;
+			c2[i].setid(1001+i+1);
+		}
+
+	for(i=0;i<4;i++)
+		c2[i].printComputer();
+	return 0;
+}

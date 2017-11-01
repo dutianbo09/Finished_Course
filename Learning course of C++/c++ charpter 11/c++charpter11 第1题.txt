@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+double average(double a[],int size);
+int above(double a[],int size,double aver);
+int main()
+{
+	int size;
+	cin>>size;
+	double a[80];
+	for(int i=0;i<size;i++)
+		{
+			cin>>a[i];
+		}
+	cout<<average(a,size)<<endl;
+	cout<<above(a,size,average(a,size))<<endl;
+	return 0;
+}
+
+double average(double a[],int size)
+{
+	double sum=0;
+	for(int i=0;i<size;i++)
+		sum=sum+a[i];
+	return sum/size;
+}
+int above(double a[],int size,double aver)
+{
+	int count=0;
+	for(int i=0;i<size;i++)
+		if(a[i]>aver)
+			count++;
+	return count;
+}

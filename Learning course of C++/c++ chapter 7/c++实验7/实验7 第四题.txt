@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+string erjinzhi(int n,char b[]);
+string shiliujinzhi(int n,char b[]);
+int main()
+{
+	int n,jinzhi;
+	cin>>n>>jinzhi;
+		char b[80];
+	if(jinzhi==2)
+		erjinzhi(n,b);
+	if(jinzhi==16)
+		shiliujinzhi(n,b);
+	cout<<b<<endl;
+	return 0;
+}
+string erjinzhi(int n,char b[])
+{
+	int a[80],i,j;
+	for( i=0; n>=1;i++)
+		{	
+			a[i]=n%2;
+			n=n/2;
+		}
+	int k=i;
+	for (j=0;j<=k-1;j++)
+		{
+		b[j]=a[i-1]+48;
+		i--;
+		}
+	b[j]='\0';
+	return b;
+}
+string shiliujinzhi(int n,char b[])
+{
+	int a[80],i,j;
+	for( i=0; n>=1;i++)
+		{	
+			a[i]=n%16;
+			n=n/16;
+		}
+	int k=i;
+	for (j=0;j<=k-1;j++)
+		{
+		
+		if(a[i-1]<=9)
+			b[j]=a[i-1]+48;
+		else
+			b[j]=a[i-1]+55;
+		i--;
+		}
+	b[j]='\0';
+	return b;
+}

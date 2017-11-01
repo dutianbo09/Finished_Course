@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+class StackOfIntegers
+{
+private:
+	int prime[120];
+	int size;
+public:
+
+	StackOfIntegers(){};
+	void setsize(int ps)
+		{
+			size=ps;
+		}
+	int getsize()
+		{
+			return size;
+		}
+	void push(int value)
+		{
+			prime[size]=value;
+			size++;
+		}
+	void pull()
+		{
+			cout<<prime[size-1]<<endl;
+			size--;
+		}
+};
+int main()
+{
+	StackOfIntegers s1;
+	s1.setsize(0);
+	bool check;
+	int i,j;
+	for(i=2;i<=120;i++)
+		{	
+			check=true;
+			for( j=2;j*j<=i;j++)
+				{
+					if(i % j ==0)
+						{
+							check=false;	
+						}
+				}
+		
+		
+		if (check==true)
+			s1.push(i);
+		}
+	for(i=s1.getsize();i>0;i--)
+		s1.pull();
+
+	return 0;
+}

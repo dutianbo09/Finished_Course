@@ -1,0 +1,82 @@
+#include <iostream>
+
+#include <cmath>
+
+using namespace std;
+
+class Circle2D
+{
+private:
+	double x,y;
+	double radius;
+public:
+	double getx() const 
+		{
+			return x;	
+		}
+	double gety() const
+		{
+			return y;	
+		}
+	double getr() const
+		{
+			return radius;	
+		}
+	Circle2D(){x=0;y=0;radius=1;}
+	Circle2D(double px,double py,double pr)
+		{x=px;y=py;radius=pr; }
+	double getArea() const
+		{
+			return 3.1416*radius*radius;
+		}
+	double getPerimeter() const
+		{	
+			return 2*3.1416*radius;
+		}
+	bool contains(double x, double y)  const
+		{
+			return sqrt(pow(x-this->x,2)+pow(y-this->y,2))<radius;
+		}
+	bool contains(const Circle2D& circle) const
+		{
+			return circle.radius+sqrt((pow(circle.x-x,2)+pow(circle.y-y,2))) <= radius;
+		}
+	bool overlaps(const Circle2D& circle) const
+		{
+			return x==circle.x && y==circle.y && radius==circle.radius;
+		}	
+
+
+};
+int main()
+{
+
+	   Circle2D c1(2,2,5.5);
+
+       Circle2D c2(2,2,2.5);
+
+       Circle2D c3(4,5,10.5);
+
+       cout<<"c1 perimeter is "<<c1.getPerimeter()<<endl;
+
+       cout<<"c1 area is "<<c1.getArea()<<endl;
+
+       if(c1.contains(3,3))
+
+              cout<<"c1 contains the point (3,3)"<<endl;
+
+       if(c1.contains(c2))
+
+              cout<<"c1 contains c2"<<endl;
+
+       if(c1.overlaps(c3))
+
+              cout<<"c1 overlaps c3"<<endl;
+
+       return 0;
+
+
+
+
+}
+

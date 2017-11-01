@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int lcmArray(int a[],int n)
+{
+	int i,j;bool check;int min;
+	for(i=1;;i++)
+		{
+			min=i*a[1];
+			check=true;
+			for(j=0;j<n;j++)
+				{
+					if(min%a[j]!=0)
+						check=false;
+				}
+			if(check==true)
+				return min;
+		}	
+}
+int main()
+{
+
+       int a1[3]={24,16,48};
+
+       cout<<lcmArray(a1,3)<<endl;
+
+       int a2[4]={30,50,25,75};
+
+       cout<<lcmArray(a2,4)<<endl;
+
+       int a3[5]={30,50,25,75,8};
+
+       cout<<lcmArray(a3,5)<<endl;
+
+
+       return 0;
+
+
+
+}
+

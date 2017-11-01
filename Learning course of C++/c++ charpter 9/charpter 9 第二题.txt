@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+class Account
+{
+public:
+	int id;
+	double balance;
+	double annualInterestRate;
+	Account(){id=0;balance=0;annualInterestRate=0;}
+	Account(int pi,double pb,double pa){id=pi;balance=pb;annualInterestRate=pa;}
+	double getMonthlyInterestRate(){return annualInterestRate/12.0;}
+	void withDraw(double amount){balance=balance-amount;}
+	void deposit(double amount){balance=balance+amount;}
+};
+int main()
+{
+	Account a1(1122,20000,0.045);
+	a1.withDraw(2500);
+	a1.deposit(3000);
+	cout<<a1.balance<<"    "<<a1.balance * a1.getMonthlyInterestRate()<<endl;
+	return 0;
+}

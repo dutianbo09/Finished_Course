@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+int max(int a,int b);
+int max(int a,int b,int c);
+double max(double e, double f);
+double max(double e, double f, double g);
+int main()
+{
+	int a,b,c;
+	double e,f,g;
+	cin>>a>>b;
+	cout<<max(a,b)<<endl;
+	cin>>a>>b>>c;
+	cout<<max(a,b,c)<<endl;
+	cin>>e>>f;
+	cout<<max(e,f)<<endl;
+	cin>>e>>f>>g;
+	cout<<max(e,f,g)<<endl;
+	return 0;
+}
+int max(int a,int b)
+{
+	if (a>b)
+		return a;
+	else return b;
+}
+int max(int a,int b,int c)
+{
+	int k;
+	if (a>b)
+		k=a;
+	else k=b;
+	if (c>k)
+		k=c;
+	return k;
+		
+}
+double max(double e, double f)
+{
+	if (e>f)
+		return e;
+	else return f;
+}
+double max(double e, double f, double g)
+{
+	double k;
+	if (e>f)
+		k=e;
+	else k=f;
+	if (g>k)
+		k=g;
+	return k;
+}
+	

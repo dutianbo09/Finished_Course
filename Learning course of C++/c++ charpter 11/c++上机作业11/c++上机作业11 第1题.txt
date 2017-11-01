@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+class Sale
+{
+private:
+	int num;
+	int quantity;
+	double price;
+public:
+	Sale(){};
+	Sale(int  pn, int pq,double pp)
+		{
+			n=n+pq;
+			if(pq>10)
+				sum=sum+pq*pp*discount;
+			else
+				sum=sum+pq*pp;
+		}
+	static double discount;
+	static double sum;
+	static int n;
+	static double average();
+};
+double Sale::discount=0.98;
+double Sale::sum=0;
+int Sale::n=0;
+double Sale::average()
+{
+	return sum*1.0/n;
+}
+int main()
+{
+  Sale s1(101,5,23.50);
+  Sale s2(102,12,24.56);
+  Sale s3(103,100,21.50);
+  cout<<s3.sum<<endl;
+  cout<<s3.average()<<endl;
+}

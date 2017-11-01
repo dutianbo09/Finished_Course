@@ -1,0 +1,29 @@
+#include<iostream>
+#include <iomanip>
+using namespace std;
+double count(int n);
+int jieceng(int n);
+int main()
+{
+	int n;
+	cout<<"Input a number greater than 10 : ";
+	cin>>n;
+	cout<<fixed<<setprecision(6)<<count(n)<<endl;
+	return 0;
+}
+double count(int n)
+{
+	static double sum=0;
+	if(n>=2)
+		sum=(count(n-1)+(n+1)*1.0/jieceng(n));
+	return sum;
+}
+int jieceng(int n)
+{
+	int k=1;
+	for(int i=1;i<=n;i++)
+		k=k*i;
+	return k;
+
+}
+

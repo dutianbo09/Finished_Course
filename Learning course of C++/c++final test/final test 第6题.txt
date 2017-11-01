@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int i,j,k,l;
+	bool check[40];
+	bool result;
+	int a1,a2,a3,a4;
+	int mass;
+	int var;
+	for( i=1;i<=40;i++)
+		for(j=i+1;j<=40;j++)
+			for(k=j+1;k<=40;k++)
+				for(l=k+1;l<=40;l++)
+					{
+						result=true;
+						for(var=0;var<40;var++)
+							check[var]=false;
+						for(mass=1;mass<=40;mass++)
+							for(a1=-1;a1<=1;a1++)
+								for(a2=-1;a2<=1;a2++)
+									for(a3=-1;a3<=1;a3++)
+										for(a4=-1;a4<=1;a4++)
+											{
+												if(mass==(a1*i+a2*j+a3*k+a4*l))
+													check[mass-1]=true;
+											}
+						for(var=0;var<40;var++)
+							{if(check[var]==false) result=false;}
+						if(result==true)
+							{
+								cout<<i<<"   "<<j<<"    "<<k<<"   "<<l<<endl;
+								exit(0);
+							}
+					}
+	return 0;
+}

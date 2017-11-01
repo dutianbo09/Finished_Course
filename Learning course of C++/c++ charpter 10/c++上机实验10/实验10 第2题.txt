@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+class Book
+{
+public:
+	char *name;
+	char *author;
+	char *press;
+	int numberOfPages;
+	Book()
+		{
+		}
+	Book(char *pn, char *pa, char *pp, int pnu)
+		{
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name, pn);
+			
+			author= new char[strlen(pa)+1];
+			if(author!=0)
+				strcpy(author, pa);
+			
+			press= new char[strlen(pp)+1];
+			if(press!=0)
+				strcpy(press ,pp);
+			numberOfPages=pnu;
+
+		}
+	~Book()
+		{
+			delete[] name;
+			delete[] author;
+			delete[] press;
+		}
+	inline void printBook()
+		{
+			cout<<name<<endl;
+			cout<<author<<endl;
+			cout<<press<<endl;
+			cout<<numberOfPages<<endl;
+		}
+	void setPress(char *pp="清华大学出版社")
+		{
+			press= new char[strlen(pp)+1];
+			if(press!=0)
+				strcpy(press ,pp);
+		}
+};
+int main()
+{
+	Book b1("好书","张三","出版社",1024);
+	b1.setPress();
+	b1.printBook();
+	b1.setPress("高等教育出版社");
+	b1.printBook();
+	return 0;
+}

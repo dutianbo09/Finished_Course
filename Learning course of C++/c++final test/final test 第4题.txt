@@ -1,0 +1,48 @@
+#include <iostream>
+
+#include <cmath>
+
+using namespace std;
+char* sort(char a[])
+{
+		int i,j;
+		char temp;
+		static char fin[20];
+		for(i=0;a[i]!='\0';i++)
+			{
+				fin[i]=a[i];	
+			}	
+		for(i=0;fin[i]!='\0';i++)
+			for(j=0;fin[j]!='\0';j++)
+				{
+					if(fin[j]<fin[j+1])
+						{
+							temp=fin[j];
+							fin[j]=fin[j+1];
+							fin[j+1]=temp;
+						}
+				}
+		return fin;
+}
+
+
+int main()
+{
+	char c1[20]="540126";
+
+       cout<<c1<<",";
+
+       cout<<sort(c1)<<endl;
+
+       char c2[20]="045897236798";
+
+       cout<<c2<<",";
+
+       cout<<sort(c2)<<endl;
+
+       return 0;
+
+
+
+}
+

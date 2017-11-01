@@ -1,0 +1,56 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+class RegularPoloygon
+{
+private:
+	int n;
+	double side;
+	double x,y;
+public:
+	RegularPoloygon()
+		{
+			n=3;
+			side=1;
+			x=0;y=0;
+		}
+	RegularPoloygon(int pn,double ps)
+		{
+			n=pn;
+			side=ps;
+			x=0;y=0;
+		}
+	RegularPoloygon(int pn,double ps,double px, double py)
+		{
+			n=pn;
+			side=ps;
+			x=px;y=py;
+		}
+	int getn() const {return n;}
+	int gets() const {return side;}
+	int getx() const {return x;}
+	int gety() const {return y;}
+	void setn(int pn){n=pn;}
+	void sets(int ps){side=ps;}
+	void setx(int px){x=px;}
+	void sety(int py){y=py;}
+	double  getPerimeter() const
+		{
+			return n*side;
+		}
+	double  getArea() const
+		{
+			return 0.5*n*side*side*sin(2*3.14159265358/n);
+		}
+
+};
+int main()
+{
+	RegularPoloygon r1;
+	RegularPoloygon r2(6,4);
+	RegularPoloygon r3(10,4,5.6,7.8);
+	cout<<r1.getPerimeter()<<"    "<<r1.getArea()<<endl;
+	cout<<r2.getPerimeter()<<"    "<<r2.getArea()<<endl;
+	cout<<r3.getPerimeter()<<"    "<<r3.getArea()<<endl;
+	return 0;
+}

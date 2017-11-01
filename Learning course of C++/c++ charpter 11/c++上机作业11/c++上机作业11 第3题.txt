@@ -1,0 +1,136 @@
+#include<iostream>
+using namespace std;
+class Chip
+{
+private:
+	int id;
+	char *name;
+public:
+	Chip(){cout<<"Chip constructed"<<endl;}
+	Chip(int pid, char* pn)
+		{
+			id=pid;
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name,pn);
+			cout<<"Chip constructed"<<endl;
+		}
+	void setChip(int pid, char* pn)
+		{
+			id=pid;
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name,pn);
+		}
+	~Chip()
+		{
+			delete[] name;
+			cout<<"Chip deconstructed"<<endl;
+		}
+
+};
+class HardDisk
+{
+private:
+	int id;
+	char *name;
+public:
+	HardDisk(){cout<<"HardDisk constructed"<<endl;}
+	HardDisk(int pid, char* pn)
+		{
+			id=pid;
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name,pn);
+			cout<<"HardDisk constructed"<<endl;
+		}
+	void setHardDisk(int pid, char* pn)
+		{
+			id=pid;
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name,pn);
+		}
+	~HardDisk()
+		{
+			delete[] name;
+			cout<<"HardDisk deconstructed"<<endl;
+		}
+
+};
+class Monitor
+{
+private:
+	int id;
+	char *name;
+public:
+	Monitor(){cout<<"Monitor constructed"<<endl;}
+	Monitor(int pid, char* pn)
+		{
+			id=pid;
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name,pn);
+			cout<<"Monitor constructed"<<endl;
+		}
+	void setMonitor(int pid, char* pn)
+		{
+			id=pid;
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name,pn);
+		}
+	~Monitor()
+		{
+			delete[] name;
+			cout<<"Monitor deconstructed"<<endl;
+		}
+
+};
+class Keyboard
+{
+private:
+	int id;
+	char *name;
+public:
+	Keyboard(){cout<<"Keyboard constructed"<<endl;}
+	Keyboard(int pid, char* pn)
+		{
+			id=pid;
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name,pn);
+			cout<<"Keyboard constructed"<<endl;
+		}
+	void setKeyboard(int pid, char* pn)
+		{
+			id=pid;
+			name= new char[strlen(pn)+1];
+			if(name!=0)
+				strcpy(name,pn);
+		}
+	~Keyboard()
+		{
+			delete[] name;
+			cout<<"Keyboard deconstructed"<<endl;
+		}
+
+};
+class Computer
+{
+public:
+	Chip mc;
+	HardDisk mh;
+	Monitor mm;
+	Keyboard mk;
+
+};
+int main()
+{
+	Computer c1;
+	c1.mh.setHardDisk(1001,"a");
+	c1.mk.setKeyboard(1002,"b");
+	c1.mm.setMonitor(1003,"c");
+	c1.mc.setChip(1004,"d");
+	return 0;
+}

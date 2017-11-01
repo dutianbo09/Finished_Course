@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+bool isAnagram(char a[],char b[])
+{
+	int c1[26];int c2[26];
+	if(strlen(a)!=strlen(b))
+		return false;
+	int i;
+	for(i=0;a[i]!='\0';i++)
+		{
+			c1[a[i]-'a']++;
+		}
+	
+	for(i=0;b[i]!='\0';i++)
+		{
+			c2[b[i]-'a']++;
+		}
+	for(i=0;a[i]!='\0';i++)
+		{	
+			if(c1[i]!=c2[i])
+				return false;
+		}
+	return true;
+}
+int main()
+{
+
+       cout<<isAnagram("silent","listen")<<endl;
+
+       cout<<isAnagram("garden","ranged")<<endl;
+
+       cout<<isAnagram("taak","taak")<<endl;
+
+       cout<<isAnagram("teacher","teach")<<endl;
+
+       return 0;
+
+}
+

@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+double sum(double a[20][20],int hang, int lie);
+int main ()
+{
+	double a[20][20];
+	int hang,lie;
+	cin>>hang>>lie;
+	for(int i =0;i<=hang-1;i++)
+		for (int j=0;j<=lie-1;j++)
+			cin>>a[i][j];
+	cout<<sum(a,hang,lie);
+	return 0;
+}
+double sum(double a[20][20],int hang, int lie)
+{
+	double total=0;
+	for(int i =0;i<=hang-1;i++)
+		for (int j=0;j<=lie-1;j++)
+			total=total+a[i][j];
+	return total;
+}

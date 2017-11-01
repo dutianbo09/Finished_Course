@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+const int n=5;
+double average(double a[],int k);
+int main()
+{
+	double a[n];
+	int i;
+	for(i=0;i<=n-1;i++)
+		cin>>a[i];
+	cout<<average(a,n)<<endl;
+	return 0;
+}
+double average(double a[],int k)
+{
+	double sum=0,av;
+	for(int i=0;i<=k-1;i++)
+		sum=sum+a[i];
+	av=sum*1.0/k;
+	return av;
+
+}

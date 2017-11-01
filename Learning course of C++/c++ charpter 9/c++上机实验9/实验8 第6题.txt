@@ -1,0 +1,29 @@
+#include<iostream>
+#include<string>
+#include <stdio.h>
+#include<math.h>
+using namespace std;
+void change(char *p,	int &q,long &h);
+int main()
+{
+	char a[30];
+	gets(a);
+	char *p=a;
+	int q=0;
+	long h=0;
+	change(p,q,h);
+	cout<<q<<endl;
+   	cout<<h<<endl;
+	return 0;
+}
+ void change(char *p,	int &q,long  &h)
+ {
+	char *str1,*str2,*str3,*str4;
+	str1=strtok(p,"(");
+	str2=strtok(str1,")");
+	str3=strtok(NULL,"-");
+	str4=strtok(NULL,"-");
+	q=atoi(str2);
+	h=atoi(str3)*pow(10,strlen(str4))+atoi(str4);
+
+ }

@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+class Myinteger
+{
+	int value;
+	Myinteger(int pv){value=pv};
+	const get(){return value};
+	const isEven()
+		{
+		  if (value%2==0)
+			  return 1;
+		  else 
+			  return 0;
+		}
+	const  isOdd()
+		{
+		  if (value%2==1)
+			  return 1;
+		  else 
+			  return 0;
+		}
+	const isPrime()
+		{
+			int check=1;
+			for(int i=2;i*i<=value;i++)
+				{
+					if(value % i ==0)
+						{
+							check=0;
+							break;
+						}
+				}
+			return check;
+		}
+	
+};
+int main()
+{
+	return 0;
+}

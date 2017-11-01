@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+template <class T>
+class Max
+{
+public:
+	Max(T pfirst,T psecond,T pthird, T pfourth);
+	T getMax();
+private:
+	T first;
+	T second;
+	T third;
+	T fourth;
+};
+template <class T>
+Max<T>::Max(T pfirst,T psecond,T pthird,T pfourth):
+	first(pfirst),second(psecond),third(pthird),fourth(pfourth)
+{}
+template <class T>
+T Max<T>::getMax()
+{
+	T value;
+	value=first>second?first:second;
+	value=value>third?value:third;
+	value=value>fourth?value:fourth;
+	return value;
+};
+
+int main()
+{
+	Max<int> nMax(15,27,59,63);
+	cout<<"nMax is :  "<<nMax.getMax()<<endl;
+	Max<float> fMax(1.1f,2.2f,2.1f,3.2f);
+	cout<<"fMax is :  "<<fMax.getMax()<<endl;
+	Max<char> cMax('a','f','e','g');
+	cout<<"cMax is :  "<<cMax.getMax()<<endl;
+	Max<double> dMax(2.6,3.6,5.95,4.596);
+	cout<<"dMax is :  "<<dMax.getMax()<<endl;
+	return 0;
+} 

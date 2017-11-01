@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+class EvenNumber
+{
+public :
+	int value;
+	EvenNumber(){value=0;}
+	EvenNumber(int pv){value=pv;}
+	int getValue(){return value;}
+	int getNext(){return value+2;} 
+	int getPrevious(){return value-2;}
+};
+int main()
+{
+	EvenNumber e1(16);
+	cout<<e1.getPrevious()<<"   "<<e1.getValue()<<"   "<<e1.getNext()<<endl;;
+	return 0;
+}

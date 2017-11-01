@@ -1,0 +1,74 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+void printmonth(int year, int month);
+void title(int year, int month);
+void monthbody(int year, int month);
+int getstartday(int year,int month);
+int gettotalnumberofdays(int year, int month);
+int getnumberofdaysinmonth(int year,int month);
+bool isleapyear(int year);
+int main()
+{
+	int year,month;
+	cin>>year>>month;
+	printmonth(year,month);
+	cout<<endl;
+	return 0;
+
+}
+void printmonth(int year, int month)
+{
+	title(year,month);
+	monthbody(year, month);
+}
+void title(int year,int month)
+{
+	cout<<" Sun Mon Tue Wed Thu Fri Sat"<<endl;
+}
+void monthbody(int year,int month)
+{
+	int startday=getstartday(year, month);
+	int i;
+	int numberofdaysinmonth=getnumberofdaysinmonth(year,month);
+	for(i=0   ;i<startday;i++)
+		cout<<"    ";
+	
+	for(i=1;i<=numberofdaysinmonth;i++)
+		{
+			cout<<setw(4)<<i;
+			if((i+startday)%7==0)
+				cout<<endl;
+		}
+}
+int getstartday(int year, int month)
+{
+	int startday1800=3;
+	int totalnumberofdays=gettotalnumberofdays(year,month);
+	return (totalnumberofdays+startday1800)%7;
+}
+int gettotalnumberofdays(int year, int month)
+{
+	int total=0;
+	for(int i =1800;i<year;i++)
+		if (isleapyear(i))
+			total=total+366;
+		else total=total+365;
+	for(i =1;i<month;i++)
+		total=total+getnumberofdaysinmonth(year,i);
+	return total;
+}
+int getnumberofdaysinmonth(int year,int month)
+{
+	if(month==1||month==3||month==5||month==7||month==8||month==10||month==12)
+		return 31;
+	if(month==4||month==6||month==9||month==11)
+		return 30;
+	if(month==2)
+		return isleapyear(year)?29:28;
+	return 0;
+}
+bool isleapyear(int year)
+{
+	return year%400==0||(year%4==0&&year%100!=0);
+}
